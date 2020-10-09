@@ -10,8 +10,8 @@ html {
 
 /* USER */
 
-.stopwatch {
-  background-color: rgb(6, 94, 94);
+.container {
+  background-color: #0081cb;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -64,10 +64,10 @@ html {
 
 .laps {
   list-style: none;
+  color: #fff;
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
-  color: #fff;
 }
 
 @media (max-width: 1023px) {

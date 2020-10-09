@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 // ==========================
 // ELEMENTS
 // ==========================
 
-const startButton = document.querySelector(".js-start");
-const resetButton = document.querySelector(".js-reset");
-const clockface = document.querySelector(".js-time");
+const startButton = document.querySelector('.js-start');
+const resetButton = document.querySelector('.js-reset');
+const lapButton = document.querySelector('.js-take-lap');
 
-const lapButton = document.querySelector(".js-take-lap");
-const action = document.querySelector(".action");
+const clockface = document.querySelector('.js-time');
+const action = document.querySelector('.action');
 
 resetButton.disabled = true;
 lapButton.disabled = true;
@@ -51,7 +51,7 @@ const timer = {
     this.deltaTime = 0;
     this.updateClockface(this.deltaTime);
 
-    document.querySelector(".js-laps").remove();
+    document.querySelector('.js-laps').remove();
 
     resetButton.disabled = true;
   },
@@ -75,40 +75,40 @@ const timer = {
   },
 
   getLap() {
-    const lap = document.createElement("li");
+    const lap = document.createElement('li');
     lap.textContent = this.formatTime(this.deltaTime);
-    document.querySelector(".js-laps").append(lap);
+    document.querySelector('.js-laps').append(lap);
   },
 
   createList() {
-    const list = document.createElement("ul");
-    list.classList.add("laps", "js-laps");
+    const list = document.createElement('ul');
+    list.classList.add('laps', 'js-laps');
     action.after(list);
-  }
+  },
 };
 
 // ==========================
 // EVENTS
 // ==========================
 
-startButton.addEventListener("click", handleStartButtonClick);
-resetButton.addEventListener("click", handleResetButtonClick);
-lapButton.addEventListener("click", timer.getLap.bind(timer));
+startButton.addEventListener('click', handleStartButtonClick);
+resetButton.addEventListener('click', handleResetButtonClick);
+lapButton.addEventListener('click', timer.getLap.bind(timer));
 
 function handleStartButtonClick() {
-  if (startButton.textContent === "Start") {
+  if (startButton.textContent === 'Start') {
     timer.createList();
   }
   if (!timer.isActive) {
     timer.start();
-    startButton.textContent = "Pause";
+    startButton.textContent = 'Pause';
   } else {
     timer.pause();
-    startButton.textContent = "Continue";
+    startButton.textContent = 'Continue';
   }
 }
 
 function handleResetButtonClick() {
   timer.reset();
-  startButton.textContent = "Start";
+  startButton.textContent = 'Start';
 }
