@@ -45,8 +45,7 @@ html {
 .btn {
   font-size: 1.6rem;
   font-weight: 300;
-  background-color: rgb(190, 71, 49);
-  color: #fff;
+  color: #333333;
   border-style: none;
   cursor: pointer;
   border-radius: 3px;
